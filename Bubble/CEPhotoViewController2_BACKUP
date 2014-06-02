@@ -1,0 +1,115 @@
+//
+//  CEPhotoViewController2.m
+//  Bubble
+//
+//  Created by Julius Magsino on 6/1/14.
+//  Copyright (c) 2014 Code Eevee. All rights reserved.
+//
+
+#import "CEPhotoViewController2.h"
+#import "CEViewController.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+
+@interface CEPhotoViewController2 ()
+
+@end
+
+@implementation CEPhotoViewController2
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+
+- (IBAction)Next {
+    //    CEViewController *second = [[CEViewController alloc] initWithNibName:nil bundle:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.imageView.image == nil) {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePickerController.delegate = self;
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        
+    [self presentViewController:imagePickerController animated:NO completion:nil];
+    }
+    else{
+        
+    }
+
+//        UIImagePickerController *imagePicker =
+//        [[UIImagePickerController alloc] init];
+//        imagePicker.delegate = self;
+//        imagePicker.sourceType =
+//        UIImagePickerControllerSourceTypeCamera;
+//        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+//        imagePicker.allowsEditing = NO;
+//        [self presentViewController:imagePicker
+//                           animated:YES completion:nil];
+//        _newMedia = YES;
+//        
+//    }
+    
+
+}
+
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+//    NSString *mediaType = info[UIImagePickerControllerMediaType];
+//    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    
+//    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+//        UIImage *image = info[UIImagePickerControllerOriginalImage];
+//        
+//        _imageView.image = image;
+//        if (_newMedia)
+//            UIImageWriteToSavedPhotosAlbum(image,
+//                                           self,
+//                                           @selector(image:finishedSavingWithError:contextInfo:),
+//                                           nil);
+//    }
+//    else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
+//    {
+//        // Code here to support video if enabled
+//    }
+    
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+@end

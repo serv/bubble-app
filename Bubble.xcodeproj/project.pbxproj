@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C52BC8781917027700BBB95A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC8771917027700BBB95A /* Foundation.framework */; };
+		C52BC87A1917027700BBB95A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC8791917027700BBB95A /* CoreGraphics.framework */; };
+		C52BC87C1917027700BBB95A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC87B1917027700BBB95A /* UIKit.framework */; };
+		C52BC8821917027700BBB95A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C52BC8801917027700BBB95A /* InfoPlist.strings */; };
+		C52BC8841917027700BBB95A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8831917027700BBB95A /* main.m */; };
+		C52BC8881917027700BBB95A /* CEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8871917027700BBB95A /* CEAppDelegate.m */; };
+		C52BC88B1917027700BBB95A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52BC8891917027700BBB95A /* Main.storyboard */; };
+		C52BC88E1917027700BBB95A /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC88D1917027700BBB95A /* CEViewController.m */; };
+		C52BC8901917027700BBB95A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52BC88F1917027700BBB95A /* Images.xcassets */; };
+		C52BC8971917027700BBB95A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC8961917027700BBB95A /* XCTest.framework */; };
+		C52BC8981917027700BBB95A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC8771917027700BBB95A /* Foundation.framework */; };
+		C52BC8991917027700BBB95A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52BC87B1917027700BBB95A /* UIKit.framework */; };
+		C52BC8A11917027700BBB95A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C52BC89F1917027700BBB95A /* InfoPlist.strings */; };
+		C52BC8A31917027700BBB95A /* BubbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8A21917027700BBB95A /* BubbleTests.m */; };
+		C52BC8AE1917037200BBB95A /* CEAddFriendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8AD1917037200BBB95A /* CEAddFriendsController.m */; };
+		C52BC8B119170DF500BBB95A /* CEMCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8B019170DF500BBB95A /* CEMCManager.m */; };
+		C52BC8B819173E0D00BBB95A /* CEChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BC8B619173E0D00BBB95A /* CEChatViewController.m */; };
+		C52BC8B919173E0D00BBB95A /* CEChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C52BC8B719173E0D00BBB95A /* CEChatViewController.xib */; };
+		C57102CB1927AF0000D40ECB /* Header+background_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C57102CA1927AF0000D40ECB /* Header+background_72.png */; };
+		C57336B8192AC6990041AD50 /* 120x120_no border_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = C57336B6192AC6990041AD50 /* 120x120_no border_dark.png */; };
+		C57336B9192AC6990041AD50 /* 120x120_no border.png in Resources */ = {isa = PBXBuildFile; fileRef = C57336B7192AC6990041AD50 /* 120x120_no border.png */; };
+		C57336BF192AC9980041AD50 /* CEPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57336BD192AC9980041AD50 /* CEPhotoViewController.m */; };
+		C57336C4192ACA660041AD50 /* splashscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C57336C3192ACA660041AD50 /* splashscreen.png */; };
+		C57336C6192ACED60041AD50 /* CEPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57336C5192ACED60041AD50 /* CEPhotoViewController.xib */; };
+		C57336C8192AE4F90041AD50 /* Add bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = C57336C7192AE4F90041AD50 /* Add bubble.png */; };
+		C57C55BE193C2A1D00CF6836 /* CEPhotoViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C57C55BC193C2A1D00CF6836 /* CEPhotoViewController2.m */; };
+		C57C55BF193C2A1D00CF6836 /* CEPhotoViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57C55BD193C2A1D00CF6836 /* CEPhotoViewController2.xib */; };
+		C57C55C1193C34E900CF6836 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C0193C34E900CF6836 /* Camera.png */; };
+		C57C55C3193C468600CF6836 /* CEPhotoViewController2_BACKUP in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */; };
+		C57C55C6193C68B000CF6836 /* CEPhotoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = C57C55C5193C68B000CF6836 /* CEPhotoViewController3.m */; };
+		C57C55C8193CD68E00CF6836 /* sample_file1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C7193CD68E00CF6836 /* sample_file1.txt */; };
+		C57C55CA193CD69400CF6836 /* sample_file2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C9193CD69400CF6836 /* sample_file2.txt */; };
+		C58006751928093100D90246 /* Bubble Text_35.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006741928093100D90246 /* Bubble Text_35.png */; };
+		C5800677192809F500D90246 /* Chat button_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5800676192809F500D90246 /* Chat button_72.png */; };
+		C5800679192809FF00D90246 /* Photo button_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5800678192809FF00D90246 /* Photo button_72.png */; };
+		C58006841928271200D90246 /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = C580067E1928271200D90246 /* 40x40.png */; };
+		C58006851928271200D90246 /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = C580067F1928271200D90246 /* 58x58.png */; };
+		C58006861928271200D90246 /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006801928271200D90246 /* 80x80.png */; };
+		C58006871928271200D90246 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006811928271200D90246 /* 120x120.png */; };
+		C58006881928271200D90246 /* 152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006821928271200D90246 /* 152x152.png */; };
+		C58006891928271200D90246 /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006831928271200D90246 /* 1024x1024.png */; };
+		C580068D192827C900D90246 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = C580068A192827C900D90246 /* 29.png */; };
+		C580068E192827C900D90246 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = C580068B192827C900D90246 /* 40.png */; };
+		C580068F192827C900D90246 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = C580068C192827C900D90246 /* 60.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C52BC89A1917027700BBB95A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C52BC86C1917027700BBB95A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C52BC8731917027700BBB95A;
+			remoteInfo = Bubble;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C52BC8741917027700BBB95A /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52BC8771917027700BBB95A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C52BC8791917027700BBB95A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C52BC87B1917027700BBB95A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C52BC87F1917027700BBB95A /* Bubble-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Bubble-Info.plist"; sourceTree = "<group>"; };
+		C52BC8811917027700BBB95A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C52BC8831917027700BBB95A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C52BC8851917027700BBB95A /* Bubble-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bubble-Prefix.pch"; sourceTree = "<group>"; };
+		C52BC8861917027700BBB95A /* CEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAppDelegate.h; sourceTree = "<group>"; };
+		C52BC8871917027700BBB95A /* CEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAppDelegate.m; sourceTree = "<group>"; };
+		C52BC88A1917027700BBB95A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C52BC88C1917027700BBB95A /* CEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
+		C52BC88D1917027700BBB95A /* CEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEViewController.m; sourceTree = "<group>"; };
+		C52BC88F1917027700BBB95A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C52BC8951917027700BBB95A /* BubbleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BubbleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52BC8961917027700BBB95A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C52BC89E1917027700BBB95A /* BubbleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BubbleTests-Info.plist"; sourceTree = "<group>"; };
+		C52BC8A01917027700BBB95A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C52BC8A21917027700BBB95A /* BubbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleTests.m; sourceTree = "<group>"; };
+		C52BC8AC1917037200BBB95A /* CEAddFriendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAddFriendsController.h; sourceTree = "<group>"; };
+		C52BC8AD1917037200BBB95A /* CEAddFriendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAddFriendsController.m; sourceTree = "<group>"; };
+		C52BC8AF19170DF500BBB95A /* CEMCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEMCManager.h; sourceTree = "<group>"; };
+		C52BC8B019170DF500BBB95A /* CEMCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEMCManager.m; sourceTree = "<group>"; };
+		C52BC8B519173E0D00BBB95A /* CEChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEChatViewController.h; path = ../CEChatViewController.h; sourceTree = "<group>"; };
+		C52BC8B619173E0D00BBB95A /* CEChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEChatViewController.m; path = ../CEChatViewController.m; sourceTree = "<group>"; };
+		C52BC8B719173E0D00BBB95A /* CEChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CEChatViewController.xib; path = ../CEChatViewController.xib; sourceTree = "<group>"; };
+		C57102CA1927AF0000D40ECB /* Header+background_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Header+background_72.png"; sourceTree = "<group>"; };
+		C57336B6192AC6990041AD50 /* 120x120_no border_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120x120_no border_dark.png"; sourceTree = "<group>"; };
+		C57336B7192AC6990041AD50 /* 120x120_no border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120x120_no border.png"; sourceTree = "<group>"; };
+		C57336BC192AC9980041AD50 /* CEPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPhotoViewController.h; sourceTree = "<group>"; };
+		C57336BD192AC9980041AD50 /* CEPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPhotoViewController.m; sourceTree = "<group>"; };
+		C57336C3192ACA660041AD50 /* splashscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashscreen.png; sourceTree = "<group>"; };
+		C57336C5192ACED60041AD50 /* CEPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CEPhotoViewController.xib; sourceTree = "<group>"; };
+		C57336C7192AE4F90041AD50 /* Add bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add bubble.png"; sourceTree = "<group>"; };
+		C57C55BB193C2A1D00CF6836 /* CEPhotoViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPhotoViewController2.h; sourceTree = "<group>"; };
+		C57C55BC193C2A1D00CF6836 /* CEPhotoViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPhotoViewController2.m; sourceTree = "<group>"; };
+		C57C55BD193C2A1D00CF6836 /* CEPhotoViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CEPhotoViewController2.xib; sourceTree = "<group>"; };
+		C57C55C0193C34E900CF6836 /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
+		C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CEPhotoViewController2_BACKUP; sourceTree = "<group>"; };
+		C57C55C4193C68B000CF6836 /* CEPhotoViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPhotoViewController3.h; sourceTree = "<group>"; };
+		C57C55C5193C68B000CF6836 /* CEPhotoViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPhotoViewController3.m; sourceTree = "<group>"; };
+		C57C55C7193CD68E00CF6836 /* sample_file1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_file1.txt; sourceTree = "<group>"; };
+		C57C55C9193CD69400CF6836 /* sample_file2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_file2.txt; sourceTree = "<group>"; };
+		C58006741928093100D90246 /* Bubble Text_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble Text_35.png"; sourceTree = "<group>"; };
+		C5800676192809F500D90246 /* Chat button_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat button_72.png"; sourceTree = "<group>"; };
+		C5800678192809FF00D90246 /* Photo button_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo button_72.png"; sourceTree = "<group>"; };
+		C580067E1928271200D90246 /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		C580067F1928271200D90246 /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		C58006801928271200D90246 /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		C58006811928271200D90246 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		C58006821928271200D90246 /* 152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 152x152.png; sourceTree = "<group>"; };
+		C58006831928271200D90246 /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1024x1024.png; sourceTree = "<group>"; };
+		C580068A192827C900D90246 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
+		C580068B192827C900D90246 /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
+		C580068C192827C900D90246 /* 60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C52BC8711917027700BBB95A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52BC87A1917027700BBB95A /* CoreGraphics.framework in Frameworks */,
+				C52BC87C1917027700BBB95A /* UIKit.framework in Frameworks */,
+				C52BC8781917027700BBB95A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C52BC8921917027700BBB95A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52BC8971917027700BBB95A /* XCTest.framework in Frameworks */,
+				C52BC8991917027700BBB95A /* UIKit.framework in Frameworks */,
+				C52BC8981917027700BBB95A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C52BC86B1917027700BBB95A = {
+			isa = PBXGroup;
+			children = (
+				C52BC87D1917027700BBB95A /* Bubble */,
+				C52BC89C1917027700BBB95A /* BubbleTests */,
+				C52BC8761917027700BBB95A /* Frameworks */,
+				C52BC8751917027700BBB95A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C52BC8751917027700BBB95A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC8741917027700BBB95A /* Bubble.app */,
+				C52BC8951917027700BBB95A /* BubbleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C52BC8761917027700BBB95A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC8771917027700BBB95A /* Foundation.framework */,
+				C52BC8791917027700BBB95A /* CoreGraphics.framework */,
+				C52BC87B1917027700BBB95A /* UIKit.framework */,
+				C52BC8961917027700BBB95A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C52BC87D1917027700BBB95A /* Bubble */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC8861917027700BBB95A /* CEAppDelegate.h */,
+				C52BC8871917027700BBB95A /* CEAppDelegate.m */,
+				C52BC8891917027700BBB95A /* Main.storyboard */,
+				C57C55C4193C68B000CF6836 /* CEPhotoViewController3.h */,
+				C57C55C5193C68B000CF6836 /* CEPhotoViewController3.m */,
+				C52BC88C1917027700BBB95A /* CEViewController.h */,
+				C52BC88D1917027700BBB95A /* CEViewController.m */,
+				C52BC8AC1917037200BBB95A /* CEAddFriendsController.h */,
+				C52BC8AD1917037200BBB95A /* CEAddFriendsController.m */,
+				C52BC8B519173E0D00BBB95A /* CEChatViewController.h */,
+				C52BC8B619173E0D00BBB95A /* CEChatViewController.m */,
+				C52BC8B719173E0D00BBB95A /* CEChatViewController.xib */,
+				C57336BC192AC9980041AD50 /* CEPhotoViewController.h */,
+				C57336BD192AC9980041AD50 /* CEPhotoViewController.m */,
+				C57336C5192ACED60041AD50 /* CEPhotoViewController.xib */,
+				C57C55BB193C2A1D00CF6836 /* CEPhotoViewController2.h */,
+				C57C55BC193C2A1D00CF6836 /* CEPhotoViewController2.m */,
+				C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */,
+				C57C55BD193C2A1D00CF6836 /* CEPhotoViewController2.xib */,
+				C57C55C7193CD68E00CF6836 /* sample_file1.txt */,
+				C57C55C9193CD69400CF6836 /* sample_file2.txt */,
+				C52BC88F1917027700BBB95A /* Images.xcassets */,
+				C57102C91927AEEB00D40ECB /* images */,
+				C52BC87E1917027700BBB95A /* Supporting Files */,
+				C52BC8AF19170DF500BBB95A /* CEMCManager.h */,
+				C52BC8B019170DF500BBB95A /* CEMCManager.m */,
+				C580067D1928270500D90246 /* icons */,
+			);
+			path = Bubble;
+			sourceTree = "<group>";
+		};
+		C52BC87E1917027700BBB95A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC87F1917027700BBB95A /* Bubble-Info.plist */,
+				C52BC8801917027700BBB95A /* InfoPlist.strings */,
+				C52BC8831917027700BBB95A /* main.m */,
+				C52BC8851917027700BBB95A /* Bubble-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C52BC89C1917027700BBB95A /* BubbleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC8A21917027700BBB95A /* BubbleTests.m */,
+				C52BC89D1917027700BBB95A /* Supporting Files */,
+			);
+			path = BubbleTests;
+			sourceTree = "<group>";
+		};
+		C52BC89D1917027700BBB95A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C52BC89E1917027700BBB95A /* BubbleTests-Info.plist */,
+				C52BC89F1917027700BBB95A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C57102C91927AEEB00D40ECB /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C57336C7192AE4F90041AD50 /* Add bubble.png */,
+				C5800678192809FF00D90246 /* Photo button_72.png */,
+				C5800676192809F500D90246 /* Chat button_72.png */,
+				C57C55C0193C34E900CF6836 /* Camera.png */,
+				C58006741928093100D90246 /* Bubble Text_35.png */,
+				C57102CA1927AF0000D40ECB /* Header+background_72.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		C580067D1928270500D90246 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				C57336C3192ACA660041AD50 /* splashscreen.png */,
+				C57336B6192AC6990041AD50 /* 120x120_no border_dark.png */,
+				C57336B7192AC6990041AD50 /* 120x120_no border.png */,
+				C580068A192827C900D90246 /* 29.png */,
+				C580068B192827C900D90246 /* 40.png */,
+				C580068C192827C900D90246 /* 60.png */,
+				C580067E1928271200D90246 /* 40x40.png */,
+				C580067F1928271200D90246 /* 58x58.png */,
+				C58006801928271200D90246 /* 80x80.png */,
+				C58006811928271200D90246 /* 120x120.png */,
+				C58006821928271200D90246 /* 152x152.png */,
+				C58006831928271200D90246 /* 1024x1024.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C52BC8731917027700BBB95A /* Bubble */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C52BC8A61917027700BBB95A /* Build configuration list for PBXNativeTarget "Bubble" */;
+			buildPhases = (
+				C52BC8701917027700BBB95A /* Sources */,
+				C52BC8711917027700BBB95A /* Frameworks */,
+				C52BC8721917027700BBB95A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bubble;
+			productName = Bubble;
+			productReference = C52BC8741917027700BBB95A /* Bubble.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C52BC8941917027700BBB95A /* BubbleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C52BC8A91917027700BBB95A /* Build configuration list for PBXNativeTarget "BubbleTests" */;
+			buildPhases = (
+				C52BC8911917027700BBB95A /* Sources */,
+				C52BC8921917027700BBB95A /* Frameworks */,
+				C52BC8931917027700BBB95A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C52BC89B1917027700BBB95A /* PBXTargetDependency */,
+			);
+			name = BubbleTests;
+			productName = BubbleTests;
+			productReference = C52BC8951917027700BBB95A /* BubbleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C52BC86C1917027700BBB95A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CE;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Code Eevee";
+				TargetAttributes = {
+					C52BC8941917027700BBB95A = {
+						TestTargetID = C52BC8731917027700BBB95A;
+					};
+				};
+			};
+			buildConfigurationList = C52BC86F1917027700BBB95A /* Build configuration list for PBXProject "Bubble" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C52BC86B1917027700BBB95A;
+			productRefGroup = C52BC8751917027700BBB95A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C52BC8731917027700BBB95A /* Bubble */,
+				C52BC8941917027700BBB95A /* BubbleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C52BC8721917027700BBB95A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C580068F192827C900D90246 /* 60.png in Resources */,
+				C580068D192827C900D90246 /* 29.png in Resources */,
+				C58006841928271200D90246 /* 40x40.png in Resources */,
+				C52BC8B919173E0D00BBB95A /* CEChatViewController.xib in Resources */,
+				C58006851928271200D90246 /* 58x58.png in Resources */,
+				C58006751928093100D90246 /* Bubble Text_35.png in Resources */,
+				C57C55CA193CD69400CF6836 /* sample_file2.txt in Resources */,
+				C58006871928271200D90246 /* 120x120.png in Resources */,
+				C5800679192809FF00D90246 /* Photo button_72.png in Resources */,
+				C57336C8192AE4F90041AD50 /* Add bubble.png in Resources */,
+				C58006861928271200D90246 /* 80x80.png in Resources */,
+				C57C55C8193CD68E00CF6836 /* sample_file1.txt in Resources */,
+				C57336B9192AC6990041AD50 /* 120x120_no border.png in Resources */,
+				C57C55BF193C2A1D00CF6836 /* CEPhotoViewController2.xib in Resources */,
+				C52BC8901917027700BBB95A /* Images.xcassets in Resources */,
+				C57336B8192AC6990041AD50 /* 120x120_no border_dark.png in Resources */,
+				C58006881928271200D90246 /* 152x152.png in Resources */,
+				C52BC8821917027700BBB95A /* InfoPlist.strings in Resources */,
+				C5800677192809F500D90246 /* Chat button_72.png in Resources */,
+				C57102CB1927AF0000D40ECB /* Header+background_72.png in Resources */,
+				C57336C4192ACA660041AD50 /* splashscreen.png in Resources */,
+				C57336C6192ACED60041AD50 /* CEPhotoViewController.xib in Resources */,
+				C57C55C3193C468600CF6836 /* CEPhotoViewController2_BACKUP in Resources */,
+				C580068E192827C900D90246 /* 40.png in Resources */,
+				C58006891928271200D90246 /* 1024x1024.png in Resources */,
+				C57C55C1193C34E900CF6836 /* Camera.png in Resources */,
+				C52BC88B1917027700BBB95A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C52BC8931917027700BBB95A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52BC8A11917027700BBB95A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C52BC8701917027700BBB95A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52BC8B819173E0D00BBB95A /* CEChatViewController.m in Sources */,
+				C57336BF192AC9980041AD50 /* CEPhotoViewController.m in Sources */,
+				C52BC8881917027700BBB95A /* CEAppDelegate.m in Sources */,
+				C57C55C6193C68B000CF6836 /* CEPhotoViewController3.m in Sources */,
+				C52BC8841917027700BBB95A /* main.m in Sources */,
+				C52BC8B119170DF500BBB95A /* CEMCManager.m in Sources */,
+				C52BC88E1917027700BBB95A /* CEViewController.m in Sources */,
+				C57C55BE193C2A1D00CF6836 /* CEPhotoViewController2.m in Sources */,
+				C52BC8AE1917037200BBB95A /* CEAddFriendsController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C52BC8911917027700BBB95A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C52BC8A31917027700BBB95A /* BubbleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C52BC89B1917027700BBB95A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C52BC8731917027700BBB95A /* Bubble */;
+			targetProxy = C52BC89A1917027700BBB95A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C52BC8801917027700BBB95A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C52BC8811917027700BBB95A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C52BC8891917027700BBB95A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C52BC88A1917027700BBB95A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C52BC89F1917027700BBB95A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C52BC8A01917027700BBB95A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C52BC8A41917027700BBB95A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C52BC8A51917027700BBB95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C52BC8A71917027700BBB95A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
+				INFOPLIST_FILE = "Bubble/Bubble-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C52BC8A81917027700BBB95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
+				INFOPLIST_FILE = "Bubble/Bubble-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C52BC8AA1917027700BBB95A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubble.app/Bubble";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BubbleTests/BubbleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C52BC8AB1917027700BBB95A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bubble.app/Bubble";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
+				INFOPLIST_FILE = "BubbleTests/BubbleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C52BC86F1917027700BBB95A /* Build configuration list for PBXProject "Bubble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C52BC8A41917027700BBB95A /* Debug */,
+				C52BC8A51917027700BBB95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C52BC8A61917027700BBB95A /* Build configuration list for PBXNativeTarget "Bubble" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C52BC8A71917027700BBB95A /* Debug */,
+				C52BC8A81917027700BBB95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C52BC8A91917027700BBB95A /* Build configuration list for PBXNativeTarget "BubbleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C52BC8AA1917027700BBB95A /* Debug */,
+				C52BC8AB1917027700BBB95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C52BC86C1917027700BBB95A /* Project object */;
+}
