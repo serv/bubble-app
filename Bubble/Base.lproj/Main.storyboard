@@ -205,6 +205,7 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="meA-WN-7At" id="Pqd-Jx-Uea"/>
+                        <outlet property="tblFiles" destination="DMz-9D-iil" id="Q7R-Vq-A13"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ST-Pn-oQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
