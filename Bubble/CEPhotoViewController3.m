@@ -54,7 +54,7 @@
     // Do any additional setup after loading the view from its nib.
     
     _appDelegate = (CEAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    [self copySampleFilesToDocDirIfNeeded];
+    [self copySampleFilesToDocDirIfNeeded];
     _arrFiles = [[NSMutableArray alloc] initWithArray:[self getAllDocDirFiles]];
     
     [_tblFiles setDelegate:self];
@@ -132,32 +132,32 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _documentsDirectory = [[NSString alloc] initWithString:[paths objectAtIndex:0]];
     
-    NSString *file1Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file1.txt"];
-    NSString *file2Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file2.txt"];
+//    NSString *file1Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file1.txt"];
+//    NSString *file2Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file2.txt"];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     
     
-    if (![fileManager fileExistsAtPath:file1Path] || ![fileManager fileExistsAtPath:file2Path]) {
-        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file1" ofType:@"txt"]
-                             toPath:file1Path
-                              error:&error];
-        
-        if (error) {
-            NSLog(@"%@", [error localizedDescription]);
-            return;
-        }
-        
-        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file2" ofType:@"txt"]
-                             toPath:file2Path
-                              error:&error];
-        
-        if (error) {
-            NSLog(@"%@", [error localizedDescription]);
-            return;
-        }
-    }
+//    if (![fileManager fileExistsAtPath:file1Path] || ![fileManager fileExistsAtPath:file2Path]) {
+//        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file1" ofType:@"txt"]
+//                             toPath:file1Path
+//                              error:&error];
+//        
+//        if (error) {
+//            NSLog(@"%@", [error localizedDescription]);
+//            return;
+//        }
+//        
+//        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file2" ofType:@"txt"]
+//                             toPath:file2Path
+//                              error:&error];
+//        
+//        if (error) {
+//            NSLog(@"%@", [error localizedDescription]);
+//            return;
+//        }
+//    }
 }
 
 
