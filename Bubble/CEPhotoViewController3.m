@@ -271,7 +271,7 @@
                                                                    }
                                                                    
                                                                    else{
-                                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MCDemo"
+                                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bubble"
                                                                                                                        message:@"File was successfully sent."
                                                                                                                       delegate:self
                                                                                                              cancelButtonTitle:nil
