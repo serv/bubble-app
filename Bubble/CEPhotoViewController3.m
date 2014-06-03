@@ -54,7 +54,7 @@
     // Do any additional setup after loading the view from its nib.
     
     _appDelegate = (CEAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [self copySampleFilesToDocDirIfNeeded];
+//    [self copySampleFilesToDocDirIfNeeded];
     _arrFiles = [[NSMutableArray alloc] initWithArray:[self getAllDocDirFiles]];
     
     [_tblFiles setDelegate:self];
