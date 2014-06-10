@@ -68,10 +68,6 @@
                            @"peerID": peerID
                            };
     
-    UIImage *image=[UIImage imageWithData:data];
-
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
@@ -105,11 +101,18 @@
                            @"localURL"      :   localURL
                            };
     
+    // Localurl to nsdata
+    NSString *path = [localURL path];
+    NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
+    
+    // Save the data as image
+    UIImage *image = [UIImage imageWithData:data];
+    // Save the image in the photo album
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"didFinishReceivingResourceNotification"
                                                         object:nil
                                                       userInfo:dict];
-    
-    
 }
 
 
