@@ -68,6 +68,10 @@
                            @"peerID": peerID
                            };
     
+    UIImage *image=[UIImage imageWithData:data];
+
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
