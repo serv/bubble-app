@@ -11,14 +11,22 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "CEAppDelegate.h"
 
+
 @interface CEPhotoViewController3 ()
 
 @property (nonatomic, strong) CEAppDelegate *appDelegate;
 @property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSMutableArray *arrFiles;
+@property (nonatomic, strong) NSString *selectedFile;
+@property (nonatomic) NSInteger selectedRow;
 
 -(void)copySampleFilesToDocDirIfNeeded;
 -(NSArray *)getAllDocDirFiles;
+
+-(void)didStartReceivingResourceWithNotification:(NSNotification *)notification;
+-(void)updateReceivingProgressWithNotification:(NSNotification *)notification;
+-(void)didFinishReceivingResourceWithNotification:(NSNotification *)notification;
+
 
 @end
 
@@ -54,7 +62,20 @@
     
     [_tblFiles reloadData];
 
-
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didStartReceivingResourceWithNotification:)
+                                                 name:@"MCDidStartReceivingResourceNotification"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateReceivingProgressWithNotification:)
+                                                 name:@"MCReceivingProgressNotification"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didFinishReceivingResourceWithNotification:)
+                                                 name:@"didFinishReceivingResourceNotification"
+                                               object:nil];
     
 }
 
@@ -111,32 +132,32 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     _documentsDirectory = [[NSString alloc] initWithString:[paths objectAtIndex:0]];
     
-    NSString *file1Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file1.txt"];
-    NSString *file2Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file2.txt"];
+//    NSString *file1Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file1.txt"];
+//    NSString *file2Path = [_documentsDirectory stringByAppendingPathComponent:@"sample_file2.txt"];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     
     
-    if (![fileManager fileExistsAtPath:file1Path] || ![fileManager fileExistsAtPath:file2Path]) {
-        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file1" ofType:@"txt"]
-                             toPath:file1Path
-                              error:&error];
-        
-        if (error) {
-            NSLog(@"%@", [error localizedDescription]);
-            return;
-        }
-        
-        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file2" ofType:@"txt"]
-                             toPath:file2Path
-                              error:&error];
-        
-        if (error) {
-            NSLog(@"%@", [error localizedDescription]);
-            return;
-        }
-    }
+//    if (![fileManager fileExistsAtPath:file1Path] || ![fileManager fileExistsAtPath:file2Path]) {
+//        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file1" ofType:@"txt"]
+//                             toPath:file1Path
+//                              error:&error];
+//        
+//        if (error) {
+//            NSLog(@"%@", [error localizedDescription]);
+//            return;
+//        }
+//        
+//        [fileManager copyItemAtPath:[[NSBundle mainBundle] pathForResource:@"sample_file2" ofType:@"txt"]
+//                             toPath:file2Path
+//                              error:&error];
+//        
+//        if (error) {
+//            NSLog(@"%@", [error localizedDescription]);
+//            return;
+//        }
+//    }
 }
 
 
@@ -175,32 +196,155 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell;
     
-    cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    if ([[_arrFiles objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        }
+        
+        cell.textLabel.text = [_arrFiles objectAtIndex:indexPath.row];
+        
+        [[cell textLabel] setFont:[UIFont systemFontOfSize:14.0]];
     }
-    
-    cell.textLabel.text = [_arrFiles objectAtIndex:indexPath.row];
-    
-    [[cell textLabel] setFont:[UIFont systemFontOfSize:14.0]];
+    else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"newFileCellIdentifier"];
+        
+        NSDictionary *dict = [_arrFiles objectAtIndex:indexPath.row];
+        NSString *receivedFilename = [dict objectForKey:@"resourceName"];
+        NSString *peerDisplayName = [[dict objectForKey:@"peerID"] displayName];
+        NSProgress *progress = [dict objectForKey:@"progress"];
+        
+        [(UILabel *)[cell viewWithTag:100] setText:receivedFilename];
+        [(UILabel *)[cell viewWithTag:200] setText:[NSString stringWithFormat:@"from %@", peerDisplayName]];
+        [(UIProgressView *)[cell viewWithTag:300] setProgress:progress.fractionCompleted];
+    }
     
     return cell;
 }
 
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.0;
+    if ([[_arrFiles objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+        return 60.0;
+    }
+    else{
+        return 80.0;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *selectedFile = [_arrFiles objectAtIndex:indexPath.row];
+    UIActionSheet *confirmSending = [[UIActionSheet alloc] initWithTitle:selectedFile
+                                                                delegate:self
+                                                       cancelButtonTitle:nil
+                                                  destructiveButtonTitle:nil
+                                                       otherButtonTitles:nil];
+    
+    for (int i=0; i < [[_appDelegate.mcManager.session connectedPeers] count]; i++) {
+        [confirmSending addButtonWithTitle:[[[_appDelegate.mcManager.session connectedPeers] objectAtIndex:i] displayName]];
+    }
+    
+    [confirmSending setCancelButtonIndex:[confirmSending addButtonWithTitle:@"Cancel"]];
+    
+    [confirmSending showInView:self.view];
+    
+    _selectedFile = [_arrFiles objectAtIndex:indexPath.row];
+    _selectedRow = indexPath.row;
 }
 
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex != [[_appDelegate.mcManager.session connectedPeers] count]) {
+        NSString *filePath = [_documentsDirectory stringByAppendingPathComponent:_selectedFile];
+        NSString *modifiedName = [NSString stringWithFormat:@"%@_%@", _appDelegate.mcManager.peerID.displayName, _selectedFile];
+        NSURL *resourceURL = [NSURL fileURLWithPath:filePath];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSProgress *progress = [_appDelegate.mcManager.session sendResourceAtURL:resourceURL
+                                                                            withName:modifiedName
+                                                                              toPeer:[[_appDelegate.mcManager.session connectedPeers] objectAtIndex:buttonIndex]
+                                                               withCompletionHandler:^(NSError *error) {
+                                                                   if (error) {
+                                                                       NSLog(@"Error: %@", [error localizedDescription]);
+                                                                   }
+                                                                   
+                                                                   else{
+                                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bubble"
+                                                                                                                       message:@"File was successfully sent."
+                                                                                                                      delegate:self
+                                                                                                             cancelButtonTitle:nil
+                                                                                                             otherButtonTitles:@"Great!", nil];
+                                                                       
+                                                                       [alert performSelectorOnMainThread:@selector(show) withObject:nil waitUntilDone:NO];
+                                                                       
+                                                                       [_arrFiles replaceObjectAtIndex:_selectedRow withObject:_selectedFile];
+                                                                       [_tblFiles performSelectorOnMainThread:@selector(reloadData)
+                                                                                                   withObject:nil
+                                                                                                waitUntilDone:NO];
+                                                                   }
+                                                               }];
+        });
+    }
+}
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    NSString *sendingMessage = [NSString stringWithFormat:@"%@ - Sending %.f%%",
+                                _selectedFile,
+                                [(NSProgress *)object fractionCompleted] * 100
+                                ];
+    
+    [_arrFiles replaceObjectAtIndex:_selectedRow withObject:sendingMessage];
+    
+    [_tblFiles performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
 
+-(void)didStartReceivingResourceWithNotification:(NSNotification *)notification{
+    [_arrFiles addObject:[notification userInfo]];
+    [_tblFiles performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
 
+-(void)updateReceivingProgressWithNotification:(NSNotification *)notification{
+    NSProgress *progress = [[notification userInfo] objectForKey:@"progress"];
+    
+    NSDictionary *dict = [_arrFiles objectAtIndex:(_arrFiles.count - 1)];
+    NSDictionary *updatedDict = @{@"resourceName"  :   [dict objectForKey:@"resourceName"],
+                                  @"peerID"        :   [dict objectForKey:@"peerID"],
+                                  @"progress"      :   progress
+                                  };
+    
+    
+    
+    [_arrFiles replaceObjectAtIndex:_arrFiles.count - 1
+                         withObject:updatedDict];
+    
+    [_tblFiles performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
 
-
-
+-(void)didFinishReceivingResourceWithNotification:(NSNotification *)notification{
+    NSDictionary *dict = [notification userInfo];
+    
+    NSURL *localURL = [dict objectForKey:@"localURL"];
+    NSString *resourceName = [dict objectForKey:@"resourceName"];
+    
+    NSString *destinationPath = [_documentsDirectory stringByAppendingPathComponent:resourceName];
+    NSURL *destinationURL = [NSURL fileURLWithPath:destinationPath];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    [fileManager copyItemAtURL:localURL toURL:destinationURL error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    [_arrFiles removeAllObjects];
+    _arrFiles = nil;
+    _arrFiles = [[NSMutableArray alloc] initWithArray:[self getAllDocDirFiles]];
+    
+    [_tblFiles performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+}
 
 
 
@@ -212,6 +356,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
     NSString *mediaType = info[UIImagePickerControllerMediaType];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -220,11 +365,24 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         
         _imageView.image = image;
-        if (_newMedia)
+        
+        // start - saving a photo as image
+        NSString  *jpgPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/test_image.jpg"];
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
+        NSError *error;
+        NSFileManager *fileMgr = [NSFileManager defaultManager];
+        NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        NSLog(@"Documents directory: %@", [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
+        // end   - saving a photo as image
+        
+        if (_newMedia) {
             UIImageWriteToSavedPhotosAlbum(image,
                                            self,
                                            @selector(image:finishedSavingWithError:contextInfo:),
                                            nil);
+            
+        }
+        
     }
     else if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
     {
@@ -255,7 +413,7 @@ finishedSavingWithError:(NSError *)error
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-- (void)saveImage: (UIImage*)image
+- (void)saveImage:(UIImage*)image
 {
     if (image != nil)
     {
@@ -268,7 +426,6 @@ finishedSavingWithError:(NSError *)error
         [data writeToFile:path atomically:YES];
     }
 }
-
 
 
 

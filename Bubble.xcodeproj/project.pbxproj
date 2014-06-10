@@ -37,8 +37,6 @@
 		C57C55C1193C34E900CF6836 /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C0193C34E900CF6836 /* Camera.png */; };
 		C57C55C3193C468600CF6836 /* CEPhotoViewController2_BACKUP in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */; };
 		C57C55C6193C68B000CF6836 /* CEPhotoViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = C57C55C5193C68B000CF6836 /* CEPhotoViewController3.m */; };
-		C57C55C8193CD68E00CF6836 /* sample_file1.txt in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C7193CD68E00CF6836 /* sample_file1.txt */; };
-		C57C55CA193CD69400CF6836 /* sample_file2.txt in Resources */ = {isa = PBXBuildFile; fileRef = C57C55C9193CD69400CF6836 /* sample_file2.txt */; };
 		C58006751928093100D90246 /* Bubble Text_35.png in Resources */ = {isa = PBXBuildFile; fileRef = C58006741928093100D90246 /* Bubble Text_35.png */; };
 		C5800677192809F500D90246 /* Chat button_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5800676192809F500D90246 /* Chat button_72.png */; };
 		C5800679192809FF00D90246 /* Photo button_72.png in Resources */ = {isa = PBXBuildFile; fileRef = C5800678192809FF00D90246 /* Photo button_72.png */; };
@@ -105,8 +103,6 @@
 		C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CEPhotoViewController2_BACKUP; sourceTree = "<group>"; };
 		C57C55C4193C68B000CF6836 /* CEPhotoViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPhotoViewController3.h; sourceTree = "<group>"; };
 		C57C55C5193C68B000CF6836 /* CEPhotoViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPhotoViewController3.m; sourceTree = "<group>"; };
-		C57C55C7193CD68E00CF6836 /* sample_file1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_file1.txt; sourceTree = "<group>"; };
-		C57C55C9193CD69400CF6836 /* sample_file2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_file2.txt; sourceTree = "<group>"; };
 		C58006741928093100D90246 /* Bubble Text_35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble Text_35.png"; sourceTree = "<group>"; };
 		C5800676192809F500D90246 /* Chat button_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat button_72.png"; sourceTree = "<group>"; };
 		C5800678192809FF00D90246 /* Photo button_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo button_72.png"; sourceTree = "<group>"; };
@@ -197,8 +193,6 @@
 				C57C55BC193C2A1D00CF6836 /* CEPhotoViewController2.m */,
 				C57C55C2193C468600CF6836 /* CEPhotoViewController2_BACKUP */,
 				C57C55BD193C2A1D00CF6836 /* CEPhotoViewController2.xib */,
-				C57C55C7193CD68E00CF6836 /* sample_file1.txt */,
-				C57C55C9193CD69400CF6836 /* sample_file2.txt */,
 				C52BC88F1917027700BBB95A /* Images.xcassets */,
 				C57102C91927AEEB00D40ECB /* images */,
 				C52BC87E1917027700BBB95A /* Supporting Files */,
@@ -318,6 +312,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Code Eevee";
 				TargetAttributes = {
+					C52BC8731917027700BBB95A = {
+						DevelopmentTeam = 8A9ZG756Z8;
+					};
 					C52BC8941917027700BBB95A = {
 						TestTargetID = C52BC8731917027700BBB95A;
 					};
@@ -353,12 +350,10 @@
 				C52BC8B919173E0D00BBB95A /* CEChatViewController.xib in Resources */,
 				C58006851928271200D90246 /* 58x58.png in Resources */,
 				C58006751928093100D90246 /* Bubble Text_35.png in Resources */,
-				C57C55CA193CD69400CF6836 /* sample_file2.txt in Resources */,
 				C58006871928271200D90246 /* 120x120.png in Resources */,
 				C5800679192809FF00D90246 /* Photo button_72.png in Resources */,
 				C57336C8192AE4F90041AD50 /* Add bubble.png in Resources */,
 				C58006861928271200D90246 /* 80x80.png in Resources */,
-				C57C55C8193CD68E00CF6836 /* sample_file1.txt in Resources */,
 				C57336B9192AC6990041AD50 /* 120x120_no border.png in Resources */,
 				C57C55BF193C2A1D00CF6836 /* CEPhotoViewController2.xib in Resources */,
 				C52BC8901917027700BBB95A /* Images.xcassets in Resources */,
@@ -525,11 +520,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
 				INFOPLIST_FILE = "Bubble/Bubble-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -539,11 +537,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bubble/Bubble-Prefix.pch";
 				INFOPLIST_FILE = "Bubble/Bubble-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
